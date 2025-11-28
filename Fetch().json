@@ -1,0 +1,7 @@
+fetch('/api/erm-metrics')
+  .then(response => response.json())
+  .then(data => {
+    ermChart.data.datasets[0].data = data.metrics; // Update chart data
+    ermChart.update(); // Redraw chart with new data
+  })
+  .catch(err => console.error('Error fetching data:', err));
